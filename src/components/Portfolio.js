@@ -18,7 +18,7 @@ function Portfolio() {
     {
       title: "Just Devine Gelato",
       text: "A responsive website that showcases their history and delicious gelato flavors.",
-      link: "https://www.justdevinegelateria.com",
+      link: "https://devinegelato.com.au/",
       image: justDevineLogo,
     },
     {
