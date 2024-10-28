@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import ScrollAnimation from "./ScrollAnimation";
+import ScrollAnimation from "../components/ScrollAnimation";
 import { FaReact, FaBootstrap, FaCss3Alt, FaHtml5, FaJs } from "react-icons/fa";
 
 function AboutMe() {
