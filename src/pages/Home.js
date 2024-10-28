@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Row, Col, Button } from 'react-bootstrap';
-import ScrollAnimation from './ScrollAnimation';
+import ScrollAnimation from '../components/ScrollAnimation';
 import { Typewriter } from 'react-simple-typewriter';
 import myImage from '../images/AntonellaPhoto.jpg'; // Asegúrate de reemplazar con la ruta correcta a tu imagen
 

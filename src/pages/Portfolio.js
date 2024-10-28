@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import ScrollAnimation from "./ScrollAnimation";
-import ProjectCard from "./ProjectCard";
+import ScrollAnimation from '../components/ScrollAnimation';
+import ProjectCard from "../components/ProjectCard";
 import fancyITLogo from "../images/fancyItLogo.png";
 import justDevineLogo from "../images/justDevineLogo.png";
 import fisioteamLogo from "../images/fisioTeamLogo.png";
