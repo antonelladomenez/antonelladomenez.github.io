@@ -9,7 +9,7 @@ function Contact() {
     email: "",
     message: "",
   });
-  const [messageSent, setMessageSent] = useState(false); // Estado para manejar la visibilidad del mensaje de confirmación
+  const [messageSent, setMessageSent] = useState(false); 
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -30,8 +30,7 @@ function Contact() {
       )
       .then((response) => {
         console.log("SUCCESS!", response.status, response.text);
-        setMessageSent(true); // Mostrar mensaje de confirmación
-        // Opcionalmente, limpiar el formulario después de un envío exitoso
+        setMessageSent(true); 
         setFormData({
           name: "",
           email: "",
@@ -61,7 +60,7 @@ function Contact() {
         >
           <FaGithub size={30} />
         </a>
-        <a href="mailto:domenezantonellaa@gmail.com">
+        <a href="mailto:antonella.domenez@gmail.com">
           <FaEnvelope size={30} />
         </a>
       </div>
