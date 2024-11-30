@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import ScrollAnimation from '../components/ScrollAnimation';
+import ScrollAnimation from "../components/ScrollAnimation";
 import { FaReact, FaBootstrap, FaCss3Alt, FaHtml5, FaJs } from "react-icons/fa";
 
 function AboutMe() {
@@ -11,18 +11,25 @@ function AboutMe() {
           <ScrollAnimation>
             <h2>About Me</h2>
             <p>
-              Hi, I'm Antonella Domenez, a passionate web developer with a focus
-              on frontend technologies. I love creating dynamic and responsive
-              user interfaces that provide exceptional user experiences. My
-              expertise includes working with React, Bootstrap, and CSS3 to
-              build high-quality websites.
+              Hi, I'm Antonella Domenez, an expert in web development with a
+              strong focus on frontend technologies. I specialize in crafting
+              dynamic and responsive user interfaces that provide exceptional
+              user experiences. My expertise spans coding websites and working
+              with content management systems (CMS) such as WordPress, along
+              with creating eCommerce platforms with Woocommerce and Elementor.
             </p>
             <p>
-              Previously, I co-founded a tech startup where we specialized in
-              website creation, design, and branding. This experience has honed
-              my skills in collaborating with designers and developers to
-              deliver innovative digital solutions. I'm excited to bring this
-              expertise to new challenges and contribute to impactful projects.
+              I have extensive experience developing websites using technologies
+              like React, Bootstrap, and CSS3 to deliver high-quality digital
+              solutions. Additionally, I've had the opportunity to collaborate
+              remotely with two companies, working as part of a team to bring
+              innovative projects to life. Having co-founded a tech startup,
+              I've gained a deep understanding of the entire process of website
+              creation, design, and branding. This experience has allowed me to
+              collaborate closely with both designers and developers to deliver
+              results that exceed client expectations. I’m always eager to
+              embrace new challenges and contribute my skills to meaningful
+              projects.
             </p>
           </ScrollAnimation>
         </Col>
