@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/static/css/main.ec6eaa8b.css",
+    "main.js": "/static/js/main.927d44af.js",
+    "static/media/AntonellaPhoto.jpg": "/static/media/AntonellaPhoto.f910054dfa2fb6550ce5.jpg",
+    "static/media/justDevineLogo.png": "/static/media/justDevineLogo.0cf55b446d518e6a602b.png",
+    "static/media/fancyItLogo.png": "/static/media/fancyItLogo.6610aa310e11640ce780.png",
+    "static/media/applercia.png": "/static/media/applercia.fb0604d339cdc0d154f1.png",
+    "static/media/factoryNails.png": "/static/media/factoryNails.63295e29e265dcb673a1.png",
+    "static/media/logo.png": "/static/media/logo.364eefa37fab033128c4.png",
+    "static/media/fisioTeamLogo.png": "/static/media/fisioTeamLogo.08ccfe470e4e9ede9753.png",
+    "index.html": "/index.html",
+    "main.ec6eaa8b.css.map": "/static/css/main.ec6eaa8b.css.map",
+    "main.927d44af.js.map": "/static/js/main.927d44af.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ec6eaa8b.css",
+    "static/js/main.927d44af.js"
+  ]
+}
