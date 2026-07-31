@@ -1,74 +1,64 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Container, Row, Col, Button } from "react-bootstrap";
-import ScrollAnimation from "./ScrollAnimation";
 import { Typewriter } from "react-simple-typewriter";
-import myImage from "../images/AntonellaPhoto.jpg"; // Asegúrate de reemplazar con la ruta correcta a tu imagen
-import logo from "../images/logo.png"
-function Home() {
-  const [loading, setLoading] = useState(true);
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import "../css/Home.css";
+import myImage from "../images/AntonellaPhoto-optimized.jpg";
 
-  useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 1000);
-    return () => clearTimeout(timer);
-  }, []);
+function Home() {
+  const [photoLoaded, setPhotoLoaded] = useState(false);
 
   return (
-    <>
-      {loading ? (
-        <div className="loading-overlay">
+    <section className="hero">
+      <div className="hero-copy">
+        <span className="hero-eyebrow">Open to new opportunities</span>
+        <h1 className="hero-name">Antonella Domenez</h1>
+        <h2 className="hero-role">
+          <Typewriter
+            words={["Frontend Developer", "React Developer", "UI Engineer"]}
+            loop={true}
+            cursor
+            cursorColor="#7c5cff"
+            typeSpeed={70}
+            deleteSpeed={45}
+            delaySpeed={1400}
+          />
+        </h2>
+        <p className="hero-pitch">
+          I build fast, accessible interfaces with React — from
+          component architecture to the small interaction details that
+          make a product feel polished. Focused on writing clean,
+          maintainable code that scales.
+        </p>
+        <div className="hero-actions">
+          <Link to="/portfolio" className="btn-primary">
+            View Projects
+          </Link>
+          <Link to="/contact" className="btn-secondary">
+            Get in Touch
+          </Link>
+        </div>
+        <div className="hero-socials">
+          <a href="https://github.com/antonelladomenez" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <FaGithub size={22} />
+          </a>
+          <a href="https://linkedin.com/in/antonelladomenez" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <FaLinkedin size={22} />
+          </a>
+        </div>
+      </div>
+
+      <div className="hero-photo-wrap">
+        <div className={`hero-photo-frame ${photoLoaded ? "loaded" : ""}`}>
           <img
-            src={logo}
-            alt="Loading"
-            className="loading-image"
+            src={myImage}
+            alt="Antonella Domenez"
+            className="hero-photo"
+            onLoad={() => setPhotoLoaded(true)}
           />
         </div>
-      ) : (
-        <Container fluid className="home-section">
-          <Row className="justify-content-center align-items-center home-content">
-            <Col md={6} className="text-center text-md-left">
-              <h1 className="display-4">Antonella Domenez</h1>
-              <h3>
-                <Typewriter
-                  words={[
-                    "Web Developer",
-                    "Web Designer",
-                    "Front-End Developer",
-                  ]}
-                  loop={true}
-                  cursor
-                  cursorStyle="_"
-                  typeSpeed={100}
-                  deleteSpeed={60}
-                  delaySpeed={1000}
-                />
-              </h3>
-              <ScrollAnimation>
-                <Button
-                  as={Link}
-                  to="/portfolio"
-                  variant="light"
-                  className="m-2"
-                >
-                  View Portfolio
-                </Button>
-                <Button as={Link} to="/contact" variant="light" className="m-2">
-                  Contact Me
-                </Button>
-              </ScrollAnimation>
-            </Col>
-            <Col md={6} className="text-center">
-              <img
-                src={myImage}
-                alt="Antonella Domenez"
-                className="img-fluid rounded-circle"
-                onLoad={() => setLoading(false)}
-              />
-            </Col>
-          </Row>
-        </Container>
-      )}
-    </>
+      </div>
+    </section>
   );
 }
 
