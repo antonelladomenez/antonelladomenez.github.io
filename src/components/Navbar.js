@@ -1,46 +1,47 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { Nav, Navbar } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
+import { FaBars, FaTimes } from "react-icons/fa";
 import logo from "../images/logo.png";
+import "../css/Navbar.css";
 
 function Navigation() {
-  const [expanded, setExpanded] = useState(false);
+  const [open, setOpen] = useState(false);
 
-  const handleToggle = () => {
-    setExpanded(!expanded);
-  };
+  const close = () => setOpen(false);
 
-  const handleClose = () => {
-    setExpanded(false);
-  };
+  const linkClass = ({ isActive }) =>
+    isActive ? "site-nav-link active" : "site-nav-link";
 
   return (
-    <Navbar expand="lg" className="navbar-custom" expanded={expanded}>
-      <Navbar.Brand as={Link} to="/" className="ml-5">
-        <img
-          src={logo}
-          alt="Antonella Domenez"
-          className="d-inline-block align-top"
-        />
-      </Navbar.Brand>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={handleToggle} />
-      <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="ms-auto custom-nav">
-          <Nav.Link as={Link} to="/" className="nav-link-custom" onClick={handleClose}>
-            Home
-          </Nav.Link>
-          <Nav.Link as={Link} to="/about-me" className="nav-link-custom" onClick={handleClose}>
-            About Me
-          </Nav.Link>
-          <Nav.Link as={Link} to="/portfolio" className="nav-link-custom" onClick={handleClose}>
-            Portfolio
-          </Nav.Link>
-          <Nav.Link as={Link} to="/contact" className="nav-link-custom" onClick={handleClose}>
-            Contact
-          </Nav.Link>
-        </Nav>
-      </Navbar.Collapse>
-    </Navbar>
+    <nav className="site-nav">
+      <NavLink to="/" className="site-nav-logo" onClick={close}>
+        <img src={logo} alt="Antonella Domenez" />
+      </NavLink>
+
+      <button
+        className="site-nav-toggle"
+        onClick={() => setOpen((prev) => !prev)}
+        aria-label={open ? "Close menu" : "Open menu"}
+        aria-expanded={open}
+      >
+        {open ? <FaTimes size={18} /> : <FaBars size={18} />}
+      </button>
+
+      <div className={`site-nav-links ${open ? "open" : ""}`}>
+        <NavLink to="/" className={linkClass} onClick={close}>
+          Home
+        </NavLink>
+        <NavLink to="/about-me" className={linkClass} onClick={close}>
+          About Me
+        </NavLink>
+        <NavLink to="/portfolio" className={linkClass} onClick={close}>
+          Portfolio
+        </NavLink>
+        <NavLink to="/contact" className={linkClass} onClick={close}>
+          Contact
+        </NavLink>
+      </div>
+    </nav>
   );
 }
 

@@ -1,20 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.8d4ce6ee.css",
-    "main.js": "/static/js/main.3859b7ab.js",
-    "static/media/justDevineLogo.png": "/static/media/justDevineLogo.0cf55b446d518e6a602b.png",
+    "main.css": "/static/css/main.e4e90526.css",
+    "main.js": "/static/js/main.2e8040c8.js",
     "static/media/AntonellaPhoto-optimized.jpg": "/static/media/AntonellaPhoto-optimized.4e5714b8edc5e49a63b4.jpg",
-    "static/media/fancyItLogo.png": "/static/media/fancyItLogo.6610aa310e11640ce780.png",
-    "static/media/applercia.png": "/static/media/applercia.fb0604d339cdc0d154f1.png",
-    "static/media/factoryNails.png": "/static/media/factoryNails.63295e29e265dcb673a1.png",
     "static/media/logo.png": "/static/media/logo.364eefa37fab033128c4.png",
-    "static/media/fisioTeamLogo.png": "/static/media/fisioTeamLogo.08ccfe470e4e9ede9753.png",
     "index.html": "/index.html",
-    "main.8d4ce6ee.css.map": "/static/css/main.8d4ce6ee.css.map",
-    "main.3859b7ab.js.map": "/static/js/main.3859b7ab.js.map"
+    "main.e4e90526.css.map": "/static/css/main.e4e90526.css.map",
+    "main.2e8040c8.js.map": "/static/js/main.2e8040c8.js.map"
   },
   "entrypoints": [
-    "static/css/main.8d4ce6ee.css",
-    "static/js/main.3859b7ab.js"
+    "static/css/main.e4e90526.css",
+    "static/js/main.2e8040c8.js"
   ]
 }

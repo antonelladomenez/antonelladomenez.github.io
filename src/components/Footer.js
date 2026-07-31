@@ -1,34 +1,40 @@
-import React from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import React from "react";
+import { Link } from "react-router-dom";
+import "../css/Footer.css";
 
 function Footer() {
+  const year = new Date().getFullYear();
+
   return (
-    <footer className="footer bg-dark text-white">
-      <Container>
-        <Row>
-          <Col>
-            <h5>Quick Links</h5>
-            <ul>
-              <li><a href="/" className="text-white">Home</a></li>
-              <li><a href="/about-me" className="text-white">About Me</a></li>
-              <li><a href="/portfolio" className="text-white">Portfolio</a></li>
-              <li><a href="/contact" className="text-white">Contact</a></li>
-            </ul>
-          </Col>
-          <Col>
-            <h5>Contact Info</h5>
-            <p>Email: antonella@example.com</p>
-          </Col>
-          <Col>
-            <h5>Follow Me</h5>
-            <ul>
-              <li><a href="https://www.linkedin.com" className="text-white">LinkedIn</a></li>
-              <li><a href="https://github.com" className="text-white">GitHub</a></li>
-              <li><a href="mailto:antonella@example.com" className="text-white">Email</a></li>
-            </ul>
-          </Col>
-        </Row>
-      </Container>
+    <footer className="site-footer">
+      <div className="footer-inner">
+        <div className="footer-col">
+          <h5>Antonella Domenez</h5>
+          <p>Frontend Developer building fast, accessible interfaces with React.</p>
+        </div>
+
+        <div className="footer-col">
+          <h5>Quick Links</h5>
+          <ul>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/about-me">About Me</Link></li>
+            <li><Link to="/portfolio">Portfolio</Link></li>
+            <li><Link to="/contact">Contact</Link></li>
+          </ul>
+        </div>
+
+        <div className="footer-col">
+          <h5>Get in Touch</h5>
+          <ul>
+            <li><a href="mailto:antonella.domenez@gmail.com">antonella.domenez@gmail.com</a></li>
+            <li><a href="https://www.linkedin.com/in/antonelladomenez/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+            <li><a href="https://github.com/antonelladomenez" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          </ul>
+        </div>
+      </div>
+      <div className="footer-bottom">
+        <p>© {year} Antonella Domenez. All rights reserved.</p>
+      </div>
     </footer>
   );
 }

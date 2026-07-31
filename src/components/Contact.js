@@ -1,7 +1,11 @@
 import React, { useState } from "react";
-import { Container, Form, Button, Alert } from "react-bootstrap";
 import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
 import emailjs from "emailjs-com";
+import "../css/Contact.css";
+
+const EMAILJS_SERVICE_ID = "service_l506eto";
+const EMAILJS_TEMPLATE_ID = "template_i7kuejx";
+const EMAILJS_PUBLIC_KEY = "2WRgl1FjHQJZ9UCta";
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -9,106 +13,136 @@ function Contact() {
     email: "",
     message: "",
   });
-  const [messageSent, setMessageSent] = useState(false); 
+  const [errors, setErrors] = useState({});
+  const [status, setStatus] = useState("idle"); // idle | sending | success | error
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    if (errors[name]) {
+      setErrors((prev) => ({ ...prev, [name]: null }));
+    }
+  };
+
+  const validate = () => {
+    const newErrors = {};
+    if (!formData.name.trim()) newErrors.name = "Please enter your name.";
+    if (!formData.email.trim()) {
+      newErrors.email = "Please enter your email.";
+    } else if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
+      newErrors.email = "Please enter a valid email.";
+    }
+    if (!formData.message.trim()) newErrors.message = "Please enter a message.";
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!validate()) return;
+
+    setStatus("sending");
     emailjs
-      .send(
-        "service_l506eto",
-        "template_i7kuejx",
-        formData,
-        "2WRgl1FjHQJZ9UCta"
-      )
-      .then((response) => {
-        console.log("SUCCESS!", response.status, response.text);
-        setMessageSent(true); 
-        setFormData({
-          name: "",
-          email: "",
-          message: "",
-        });
+      .send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, formData, EMAILJS_PUBLIC_KEY)
+      .then(() => {
+        setStatus("success");
+        setFormData({ name: "", email: "", message: "" });
       })
-      .catch((err) => {
-        console.error("FAILED...", err);
+      .catch(() => {
+        setStatus("error");
       });
   };
 
   return (
-    <Container className="contact-section text-center">
-      <h2>Contact Me</h2>
+    <div className="contact-page">
+      <h2>Get in Touch</h2>
+      <p className="contact-intro">
+        Have a project in mind or just want to say hi? My inbox is always open.
+      </p>
+
       <div className="social-icons">
         <a
           href="https://www.linkedin.com/in/antonelladomenez/"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="LinkedIn"
         >
-          <FaLinkedin size={30} />
+          <FaLinkedin size={26} />
         </a>
         <a
           href="https://github.com/antonelladomenez"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="GitHub"
         >
-          <FaGithub size={30} />
+          <FaGithub size={26} />
         </a>
-        <a href="mailto:antonella.domenez@gmail.com">
-          <FaEnvelope size={30} />
+        <a href="mailto:antonella.domenez@gmail.com" aria-label="Email">
+          <FaEnvelope size={26} />
         </a>
       </div>
-      {messageSent && (
-        <Alert variant="success" className="mt-4">
-          Thank you for reaching out! I will get back to you as soon as
-          possible.
-        </Alert>
+
+      {status === "success" && (
+        <div className="form-status success">
+          Thanks for reaching out! I'll get back to you as soon as possible.
+        </div>
+      )}
+      {status === "error" && (
+        <div className="form-status error">
+          Something went wrong sending your message. Please try emailing me
+          directly at antonella.domenez@gmail.com.
+        </div>
       )}
 
-      <Form className="form-container text-left" onSubmit={handleSubmit}>
-        <Form.Group controlId="formName">
-          <Form.Label>Name</Form.Label>
-          <Form.Control
+      <form className="contact-form" onSubmit={handleSubmit} noValidate>
+        <div className="form-field">
+          <label htmlFor="name">Name</label>
+          <input
+            id="name"
             type="text"
-            placeholder="Enter your name"
             name="name"
+            placeholder="Your name"
             value={formData.name}
             onChange={handleChange}
           />
-        </Form.Group>
-        <Form.Group controlId="formEmail">
-          <Form.Label>Email address</Form.Label>
-          <Form.Control
+          {errors.name && <div className="form-error">{errors.name}</div>}
+        </div>
+
+        <div className="form-field">
+          <label htmlFor="email">Email</label>
+          <input
+            id="email"
             type="email"
-            placeholder="Enter your email"
             name="email"
+            placeholder="you@example.com"
             value={formData.email}
             onChange={handleChange}
           />
-        </Form.Group>
-        <Form.Group controlId="formMessage">
-          <Form.Label>Message</Form.Label>
-          <Form.Control
-            as="textarea"
-            rows={3}
+          {errors.email && <div className="form-error">{errors.email}</div>}
+        </div>
+
+        <div className="form-field">
+          <label htmlFor="message">Message</label>
+          <textarea
+            id="message"
             name="message"
+            rows={5}
+            placeholder="Tell me a bit about your project or opportunity..."
             value={formData.message}
             onChange={handleChange}
           />
-        </Form.Group>
-        <div className="d-flex justify-content-center">
-          <Button variant="custom" type="submit" className="mt-3">
-            Submit
-          </Button>
+          {errors.message && <div className="form-error">{errors.message}</div>}
         </div>
-      </Form>
-    </Container>
+
+        <button
+          type="submit"
+          className="contact-submit"
+          disabled={status === "sending"}
+        >
+          {status === "sending" ? "Sending..." : "Send Message"}
+        </button>
+      </form>
+    </div>
   );
 }
 
