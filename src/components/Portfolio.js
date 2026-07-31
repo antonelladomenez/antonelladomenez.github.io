@@ -1,81 +1,82 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
 import ScrollAnimation from "./ScrollAnimation";
-import fancyITLogo from "../images/fancyItLogo.png";
-import justDevineLogo from "../images/justDevineLogo.png";
-import fisioteamLogo from "../images/fisioTeamLogo.png";
-import factoryNails from "../images/factoryNails.png";
-import appleRciaLogo from "../images/applercia.png";
+import "../css/Portfolio.css";
 
 function Portfolio() {
   const projects = [
     {
-      title: "Fancy IT Solutions",
-      text: "Design and development specialized in website creation, design, and branding.",
-      link: "https://www.fancyitsolutions.com",
-      image: fancyITLogo,
+      title: "Bletsi",
+      role: "Co-Founder & Developer",
+      text: "Digital agency I co-founded, offering website development, custom AI chatbots, and e-commerce solutions for small and medium businesses.",
+      link: "https://bletsi.com",
+      tags: ["Web Development", "Chatbots", "E-commerce"],
     },
     {
-      title: "Just Devine Gelato",
-      text: "Design and development of a responsive website showcasing their history and delicious gelato flavors.",
-      link: "https://devinegelato.com.au/",
-      image: justDevineLogo,
+      title: "La Mancera",
+      role: "Client Project",
+      text: "Corporate website for an agri-food company based in Chaco, Argentina — built to showcase their product line and generate B2B leads.",
+      link: "https://lamancera.com",
+      tags: ["WordPress", "Elementor", "Corporate Site"],
     },
     {
-      title: "FisioTeam",
-      text: "Branding and development of a healthcare website with Square integration for bookings.",
-      link: "https://www.fisioteam.kesug.com/",
-      image: fisioteamLogo,
+      title: "Veltron",
+      role: "Client Project",
+      text: "Online store for an Argentine consumer tech and electronics retailer. Handled store setup and custom theme/storefront customization on Tiendanube.",
+      link: "https://veltronstore.com.ar",
+      tags: ["Tiendanube", "E-commerce", "Custom Theme"],
     },
     {
-      title: "Factory Nails",
-      text: "Design and development of a professional website for a beauty salon specializing in nail design.",
-      link: "https://www.factorynails.wuaze.com/",
-      image: factoryNails,
-    },
-    {
-      title: "AppleRcia",
-      text: "Design and development of an eCommerce platform specializing in Apple products for the region.",
-      link: "https://www.applercia.com.ar/",
-      image: appleRciaLogo,
+      title: "Tienda Online",
+      role: "Client Project",
+      text: "E-commerce platform built for an Argentine technology retail company, focused on a clean product catalog and streamlined checkout experience.",
+      link: "https://tiendaonline.com",
+      tags: ["E-commerce"],
     },
   ];
 
   return (
-    <Container fluid className="portfolio-section py-5">
-      <Row className="justify-content-center">
-        <Col md={8}>
-          <ScrollAnimation>
-            <h2 className="text-center mb-4">My Portfolio</h2>
-            {projects.map((project, index) => (
-              <div key={index} className="project-card mb-4">
-                <Row className="align-items-center">
-                  <Col md={4} className="text-center">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="img-fluid rounded"
-                    />
-                  </Col>
-                  <Col md={8}>
-                    <h5>{project.title}</h5>
-                    <p>{project.text}</p>
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn btn-outline-custom"
-                    >
-                      View Project
-                    </a>
-                  </Col>
-                </Row>
+    <div className="portfolio-page">
+      <ScrollAnimation>
+        <div className="portfolio-header">
+          <h2>Selected Work</h2>
+          <p>
+            A mix of client projects and my own agency work — from
+            corporate sites to full e-commerce builds.
+          </p>
+        </div>
+      </ScrollAnimation>
+
+      <div className="project-list">
+        {projects.map((project, index) => (
+          <ScrollAnimation key={index}>
+            <div className="project-card-v2">
+              <div className="project-card-header">
+                <div className="project-card-title-group">
+                  <h3>{project.title}</h3>
+                  <span className="project-role">{project.role}</span>
+                </div>
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="project-link-btn"
+                >
+                  Visit site →
+                </a>
               </div>
-            ))}
+              <p>{project.text}</p>
+              <div className="project-tags">
+                {project.tags.map((tag, i) => (
+                  <span key={i} className="project-tag">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
           </ScrollAnimation>
-        </Col>
-      </Row>
-    </Container>
+        ))}
+      </div>
+    </div>
   );
 }
 

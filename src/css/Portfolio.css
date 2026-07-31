@@ -1,0 +1,123 @@
+.portfolio-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 60px 32px 100px;
+}
+
+.portfolio-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.portfolio-header h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.portfolio-header p {
+  font-family: 'Inter', sans-serif;
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.project-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.project-card-v2 {
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 32px;
+  background: var(--bg-elevated);
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.project-card-v2:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.project-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.project-card-title-group {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.project-card-v2 h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.project-role {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.project-link-btn {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 8px 16px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.project-link-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.project-card-v2 p {
+  font-family: 'Inter', sans-serif;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 0.98rem;
+  margin-bottom: 16px;
+  max-width: 680px;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.project-tag {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 4px 12px;
+}
+
+@media (max-width: 600px) {
+  .project-card-v2 {
+    padding: 24px 20px;
+  }
+}
